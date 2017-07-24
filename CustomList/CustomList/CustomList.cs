@@ -9,7 +9,8 @@ namespace CustomListProject
 {
     public class CustomList<T> : IEnumerable
     {
-        T[] customArray = new T[] { };
+        //T[] customArray = new T[] { };
+        T[] customArray;
         int count;
 
         public T this[int index] {   get { return customArray[index]; }  }
@@ -17,12 +18,16 @@ namespace CustomListProject
 
         public CustomList()
         {
-            T whatever = customArray[0];
+            
         }
 
-        //Removes First instance of specified item form list.
         public void Add(T item)
         {
+            T newItem = item;
+            //Get array length
+            //initialize new array
+            //move old array elements to new array during init.
+            customArray = new T[] { };
 
         }
 
@@ -48,7 +53,10 @@ namespace CustomListProject
             throw new NotImplementedException();
         }
 
-
+        private int GetArrayLength()
+        {
+            return 0;
+        }
         
     }
 }
