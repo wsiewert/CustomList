@@ -8,8 +8,19 @@ namespace CustomListTest
     public class EnumerateTest
     {
         [TestMethod]
-        public void TestMethod1()
+        public void ForEach_AddToNewList_ReturnNewListCount()
         {
+            //Arrange
+            CustomList<int> customList = new CustomList<int>() { };
+            CustomList<object> EnumeratedList = new CustomList<object>() { };
+            //Act
+            foreach (var item in customList)
+            {
+                EnumeratedList.Add(item);
+            }
+            int listCount = EnumeratedList.Count;
+            //Assert
+            Assert.AreEqual(0, listCount);
         }
     }
 }
