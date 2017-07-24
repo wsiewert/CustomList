@@ -12,15 +12,20 @@ namespace CustomListTest
         {
             //Arrange
             CustomList<int> customList = new CustomList<int>() { };
-            CustomList<object> EnumeratedList = new CustomList<object>() { };
+            CustomList<int> EnumeratedList = new CustomList<int>() { };
+            int itemsToAdd = 10;
             //Act
-            foreach (var item in customList)
+            for (int i = 0; i < itemsToAdd; i++)
+            {
+                customList.Add(1);
+            }
+            foreach (int item in customList)
             {
                 EnumeratedList.Add(item);
             }
             int listCount = EnumeratedList.Count;
             //Assert
-            Assert.AreEqual(0, listCount);
+            Assert.AreEqual(itemsToAdd, listCount);
         }
     }
 }

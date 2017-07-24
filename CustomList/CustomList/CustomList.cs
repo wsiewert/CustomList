@@ -42,7 +42,6 @@ namespace CustomListProject
         }
 
         //Overload + - Operators
-        //Zip lists together
 
         public IEnumerator GetEnumerator()
         {

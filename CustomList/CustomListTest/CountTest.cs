@@ -71,7 +71,7 @@ namespace CustomListTest
             }
             int listCount = customList.Count;
             //Assert 
-            Assert.AreEqual(1, listCount);
+            Assert.AreEqual(1000, listCount);
         }
     }
 }
