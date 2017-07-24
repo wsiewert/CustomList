@@ -31,6 +31,11 @@ namespace CustomListProject
             return false;
         }
 
+        public void Zip(CustomList<T> newList)
+        {
+
+        }
+
         public override string ToString()
         {
             return base.ToString();
