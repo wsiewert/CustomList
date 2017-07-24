@@ -11,6 +11,8 @@ namespace CustomListTest
         public void Get_ListCount_ReturnPositiveInteger()
         {
             //Arrange
+            CustomList<object> customList = new CustomList<object>() { };
+            
             //Act
             //Assert 
         }

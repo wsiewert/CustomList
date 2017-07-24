@@ -10,36 +10,39 @@ namespace CustomListProject
     public class CustomList<T> : IEnumerable
     {
         T[] customArray = new T[] { };
+        int count;
 
-        public T this[int index]
-        {
-            get { return customArray[index]; }
-        }
+        public T this[int index] {   get { return customArray[index]; }  }
+        public int Count {   get { return count; }   }
 
         public CustomList()
         {
             T whatever = customArray[0];
         }
 
+        //Removes First instance of specified item form list.
         public void Add(T item)
         {
 
         }
 
-        public void Remove(T item)
+        public bool Remove(T item)
         {
-
+            return false;
         }
 
-        public void Count()
+        public override string ToString()
         {
-
+            return base.ToString();
         }
+
+        //Overload + - Operators
 
         public IEnumerator GetEnumerator()
         {
             throw new NotImplementedException();
         }
+
 
         
     }
