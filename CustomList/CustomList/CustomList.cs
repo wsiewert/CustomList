@@ -45,10 +45,6 @@ namespace CustomListProject
             object removableItem = item;
             T[] temporaryArray;
             int skipIndex = 0;
-            //object item1 = item;
-            //object item2 = customArray[0];
-            //bool result = (item1 == item2); //dont use
-            //bool result2 = item1.Equals(item2); //use
             if (count == 0)
             {
                 return false;
@@ -111,7 +107,10 @@ namespace CustomListProject
 
         public IEnumerator GetEnumerator()
         {
-            throw new NotImplementedException();
+            for (int i = 0; i < count; i++)
+            {
+                yield return customArray[i];
+            }
         }
     }
 }

@@ -30,6 +30,11 @@ namespace CustomListProject
             Console.WriteLine(foo[2]);
             Console.WriteLine(foo[3]);
 
+            foreach (var item in foo)
+            {
+                Console.WriteLine(item);
+            }
+
             Console.ReadKey();
         }
     }
