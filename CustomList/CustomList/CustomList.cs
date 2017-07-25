@@ -9,9 +9,8 @@ namespace CustomListProject
 {
     public class CustomList<T> : IEnumerable
     {
-        //T[] customArray = new T[] { };
-        T[] customArray;
-        int count;
+        T[] customArray = new T[] { };
+        int count = 0;
 
         public T this[int index] {   get { return customArray[index]; }  }
         public int Count {   get { return count; }   }
@@ -22,13 +21,23 @@ namespace CustomListProject
         }
 
         public void Add(T item)
-        {
-            T newItem = item;
-            //Get array length
-            //initialize new array
-            //move old array elements to new array during init.
-            customArray = new T[] { };
+        {    
+            T[] temporaryArray = new T[count + 1];
 
+            if(count == 0)
+            {
+                customArray = new T[] { item };
+            }
+            else if(count >= 1)
+            {
+                for (int i = 0; i < count; i++)
+                {
+                    temporaryArray[i] = customArray[i];
+                }
+                temporaryArray[count + 1] = item;
+            }
+            customArray = temporaryArray;
+            count++;
         }
 
         public bool Remove(T item)
@@ -52,11 +61,5 @@ namespace CustomListProject
         {
             throw new NotImplementedException();
         }
-
-        private int GetArrayLength()
-        {
-            return 0;
-        }
-        
     }
 }
