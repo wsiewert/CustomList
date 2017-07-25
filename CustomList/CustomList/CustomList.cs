@@ -12,23 +12,23 @@ namespace CustomListProject
         T[] customArray = new T[] { };
         int count = 0;
 
-        public T this[int index] {   get { return customArray[index]; }  }
-        public int Count {   get { return count; }   }
+        public T this[int index] { get { return customArray[index]; } }
+        public int Count { get { return count; } }
 
         public CustomList()
         {
-            
+
         }
 
         public void Add(T item)
-        {    
+        {
             T[] temporaryArray = new T[count + 1];
 
-            if(count == 0)
+            if (count == 0)
             {
                 customArray = new T[] { item };
             }
-            else if(count >= 1)
+            else if (count >= 1)
             {
                 for (int i = 0; i < count; i++)
                 {
@@ -61,7 +61,7 @@ namespace CustomListProject
                         skipIndex = i;
                         break;
                     }
-                    else if (i == count-1)
+                    else if (i == count - 1)
                     {
                         return false;
                     }
@@ -104,6 +104,16 @@ namespace CustomListProject
         }
 
         //Overload + - Operators
+        public static CustomList<T> operator +(CustomList<T> list1,CustomList<T> list2)
+        {
+            //check customLists are of the same type.
+            //Create temporary array from added customlists.
+            //load first list then second 
+            //TODO: (create an iterator method for other member methods)
+
+            CustomList<T> newCustomList = new CustomList<T>();
+            return newCustomList;
+        }
 
         public IEnumerator GetEnumerator()
         {
