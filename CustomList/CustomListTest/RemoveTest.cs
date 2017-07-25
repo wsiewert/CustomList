@@ -79,6 +79,22 @@ namespace CustomListTest
         }
 
         [TestMethod]
+        public void Remove_IndexOne_ReturnIntAtIndexZero()
+        {
+            //Arrange
+            CustomList<int> customList = new CustomList<int>() { };
+            int itemToRemove = 1;
+            //Act
+            customList.Add(1);
+            customList.Add(2);
+            customList.Add(3);
+            customList.Remove(itemToRemove);
+            int newItemAtRemovedIndex = customList[0];
+            //Assert
+            Assert.AreEqual(2, newItemAtRemovedIndex);
+        }
+
+        [TestMethod]
         public void Remove_OneObject_ReturnListCount()
         {
             //Arrange
@@ -92,6 +108,18 @@ namespace CustomListTest
             int listCount = customList.Count;
             //Assert
             Assert.AreEqual(2, listCount);
+        }
+
+        [TestMethod]
+        public void RemoveObject_ArrayLengthZero_ReturnFalse()
+        {
+            //Arrange
+            CustomList<object> customList = new CustomList<object>() { };
+            object testObject = new Random();
+            //Act
+            bool removedItem = customList.Remove(testObject);
+            //Assert
+            Assert.IsFalse(removedItem);
         }
     }
 }

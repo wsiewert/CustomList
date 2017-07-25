@@ -34,14 +34,66 @@ namespace CustomListProject
                 {
                     temporaryArray[i] = customArray[i];
                 }
-                temporaryArray[count + 1] = item;
+                temporaryArray[count] = item;
+                customArray = temporaryArray;
             }
-            customArray = temporaryArray;
             count++;
         }
 
         public bool Remove(T item)
         {
+            object removableItem = item;
+            T[] temporaryArray;
+            int skipIndex = 0;
+            //object item1 = item;
+            //object item2 = customArray[0];
+            //bool result = (item1 == item2); //dont use
+            //bool result2 = item1.Equals(item2); //use
+            if (count == 0)
+            {
+                return false;
+            }
+
+            if (count >= 1)
+            {
+                //finds euqated values, returns skip index
+                for (int i = 0; i < count; i++)
+                {
+                    object currentArrayItem = customArray[i];
+                    if (removableItem.Equals(currentArrayItem))
+                    {
+                        skipIndex = i;
+                        break;
+                    }
+                    else if (i == count-1)
+                    {
+                        return false;
+                    }
+                }
+                //rebuilds temporary array from current array minus skip index
+                temporaryArray = new T[count - 1];
+                for (int i = 0; i < (count); i++)
+                {
+                    if (i == skipIndex)
+                    {
+                        // continue when skipped
+                        continue;
+                    }
+                    else if (i > skipIndex)
+                    {
+                        // add into temparray[i-1]
+                        temporaryArray[i - 1] = customArray[i];
+                    }
+                    else
+                    {
+                        // add into temparry[i]
+                        temporaryArray[i] = customArray[i];
+                    }
+                }
+                customArray = temporaryArray;
+                count--;
+                return true;
+            }
             return false;
         }
 
