@@ -101,10 +101,11 @@ namespace CustomListProject
         public override string ToString()
         {
             string returnString = "";
+
             for (int i = 0; i < count; i++)
-            {
+            { 
                 returnString += "'" + customArray[i].ToString() + "'";
-                if (i < count)
+                if (i < (count - 1))
                 {
                     returnString += ", ";
                 }
