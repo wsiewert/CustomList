@@ -103,19 +103,25 @@ namespace CustomListProject
             return base.ToString();
         }
 
-        //Overload + - Operators
         public static CustomList<T> operator +(CustomList<T> list1,CustomList<T> list2)
         {
             CustomList<T> newCustomList = new CustomList<T>();
-
             newCustomList = list1;
-
             for (int i = 0; i < list2.Count; i++)
             {
                 newCustomList.Add(list2[i]);
             }
-
             return newCustomList;
+        }
+
+        public static CustomList<T> operator -(CustomList<T> list1,CustomList<T> list2)
+        {
+            for (int i = 0; i < list2.Count; i++)
+            {
+                T item = list2[i];
+                list1.Remove(item);
+            }
+            return list1;
         }
 
         public IEnumerator GetEnumerator()

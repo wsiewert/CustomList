@@ -234,5 +234,9 @@ namespace CustomListTest
             //Assert
             Assert.AreEqual(11, index);
         }
+
+        //=================================SUBTRACTION TESTS=================================
+
+
     }
 }
