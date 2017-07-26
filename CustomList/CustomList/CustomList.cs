@@ -100,7 +100,16 @@ namespace CustomListProject
 
         public override string ToString()
         {
-            return base.ToString();
+            string returnString = "";
+            for (int i = 0; i < count; i++)
+            {
+                returnString += "'" + customArray[i].ToString() + "'";
+                if (i < count)
+                {
+                    returnString += ", ";
+                }
+            }
+            return returnString;
         }
 
         public static CustomList<T> operator +(CustomList<T> list1,CustomList<T> list2)

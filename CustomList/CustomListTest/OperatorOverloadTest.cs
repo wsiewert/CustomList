@@ -237,6 +237,147 @@ namespace CustomListTest
 
         //=================================SUBTRACTION TESTS=================================
 
+        [TestMethod]
+        public void Subtract_SmallFromLargeList_RerturnCount()
+        {
+            //Arrange
+            CustomList<int> customListOne = new CustomList<int>() { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
+            CustomList<int> customListTwo = new CustomList<int>() { 1, 2, 3, 4, 5 };
+            CustomList<int> newCustomList = new CustomList<int>() { };
+            int countTest = 5;
+            //Act
+            newCustomList = customListOne - customListTwo;
+            int listCount = newCustomList.Count;
+            //Assert
+            Assert.AreEqual(countTest, listCount);
+        }
 
+        [TestMethod]
+        public void Subtract_LargeFromSmallList_RerturnCount()
+        {
+            //Arrange
+            CustomList<int> customListOne = new CustomList<int>() { 1, 2, 3, 4, 5 };
+            CustomList<int> customListTwo = new CustomList<int>() { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
+            CustomList<int> newCustomList = new CustomList<int>() { };
+            int countTest = 0;
+            //Act
+            newCustomList = customListOne - customListTwo;
+            int listCount = newCustomList.Count;
+            //Assert
+            Assert.AreEqual(countTest, listCount);
+        }
+
+        [TestMethod]
+        public void Subtract_SameLists_RerturnCount()
+        {
+            //Arrange
+            CustomList<int> customListOne = new CustomList<int>() { 3, 3, 3, 3, 3, 3 };
+            CustomList<int> customListTwo = new CustomList<int>() { 3, 3, 3, 3, 3, 3 };
+            CustomList<int> newCustomList = new CustomList<int>() { };
+            int countTest = 0;
+            //Act
+            newCustomList = customListOne - customListTwo;
+            int listCount = newCustomList.Count;
+            //Assert
+            Assert.AreEqual(countTest, listCount);
+        }
+
+        [TestMethod]
+        public void Subtract_SmiliarLists_RerturnIndexZero()
+        {
+            //Arrange
+            CustomList<int> customListOne = new CustomList<int>() { 1, 2, 3, 4, 5, 6, 7 };
+            CustomList<int> customListTwo = new CustomList<int>() { 1, 3, 5, 7 };
+            CustomList<int> newCustomList = new CustomList<int>() { };
+            int indexTest = 0;
+            int numberOfinterest = 2;
+            //Act
+            newCustomList = customListOne - customListTwo;
+            int index = newCustomList[indexTest];
+            //Assert
+            Assert.AreEqual(index, numberOfinterest);
+        }
+
+        [TestMethod]
+        public void Subtract_SmiliarLists_RerturnIndexOne()
+        {
+            //Arrange
+            CustomList<int> customListOne = new CustomList<int>() { 1, 2, 3, 4, 5, 6, 7 };
+            CustomList<int> customListTwo = new CustomList<int>() { 1, 3, 5, 7 };
+            CustomList<int> newCustomList = new CustomList<int>() { };
+            int indexTest = 1;
+            int numberOfinterest = 4;
+            //Act
+            newCustomList = customListOne - customListTwo;
+            int index = newCustomList[indexTest];
+            //Assert
+            Assert.AreEqual(index, numberOfinterest);
+        }
+
+        [TestMethod]
+        public void Subtract_SmiliarLists_RerturnIndexTwo()
+        {
+            //Arrange
+            CustomList<int> customListOne = new CustomList<int>() { 1, 2, 3, 4, 5, 6, 7 };
+            CustomList<int> customListTwo = new CustomList<int>() { 1, 3, 5, 7 };
+            CustomList<int> newCustomList = new CustomList<int>() { };
+            int indexTest = 2;
+            int numberOfinterest = 6;
+            //Act
+            newCustomList = customListOne - customListTwo;
+            int index = newCustomList[indexTest];
+            //Assert
+            Assert.AreEqual(index, numberOfinterest);
+        }
+
+        [TestMethod]
+        public void Subtract_ThreeSimilarLists_RerturnCount()
+        {
+            //Arrange
+            CustomList<int> customListOne = new CustomList<int>() { 1, 2, 3, 4, 5 };
+            CustomList<int> customListTwo = new CustomList<int>() { 1, 2 };
+            CustomList<int> customListThree = new CustomList<int>() { 3, 4, 5 };
+            CustomList<int> newCustomList = new CustomList<int>() { };
+            int countTest = 0;
+            //Act
+            newCustomList = customListOne - customListTwo - customListThree;
+            int count = newCustomList.Count;
+            //Assert
+            Assert.AreEqual(countTest, count);
+        }
+
+        [TestMethod]
+        public void Subtract_ThreeSimilarLists_RerturnIndexZero()
+        {
+            //Arrange
+            CustomList<int> customListOne = new CustomList<int>() { 1, 2, 3, 4, 5 };
+            CustomList<int> customListTwo = new CustomList<int>() { 2 };
+            CustomList<int> customListThree = new CustomList<int>() { 4, 5 };
+            CustomList<int> newCustomList = new CustomList<int>() { };
+            int indexTest = 0;
+            int numberOfinterest = 1;
+            //Act
+            newCustomList = customListOne - customListTwo;
+            int index = newCustomList[indexTest];
+            //Assert
+            Assert.AreEqual(index, numberOfinterest);
+        }
+
+        [TestMethod]
+        public void Subtract_ThreeSimilarLists_RerturnIndexOne()
+        {
+            //Arrange
+            CustomList<int> customListOne = new CustomList<int>() { 1, 2, 3, 4, 5 };
+            CustomList<int> customListTwo = new CustomList<int>() { 2 };
+            CustomList<int> customListThree = new CustomList<int>() { 4, 5 };
+            CustomList<int> newCustomList = new CustomList<int>() { };
+            int indexTest = 1;
+            int numberOfinterest = 3;
+            //Act
+            newCustomList = customListOne - customListTwo;
+            int index = newCustomList[indexTest];
+            //Assert
+            Assert.AreEqual(index, numberOfinterest);
+        }
     }
 }

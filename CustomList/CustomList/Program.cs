@@ -44,19 +44,20 @@ namespace CustomListProject
             //CustomList<string> list4 = list1 + list2 + list3;
             //string printThis = list4[0] + list4[1] + list4[2];
 
-            CustomList<int> list1 = new CustomList<int>() { 1,2,3,4,5 };
-            int foobar = list1.Count;
-            CustomList<int> list2 = new CustomList<int>() { 1,3,10,10,10,12,1,1 };
-            int foobarious = list2.Count;
+            //CustomList<int> list1 = new CustomList<int>() { 1,2,3,4,5 };
+            //int foobar = list1.Count;
+            //CustomList<int> list2 = new CustomList<int>() { 1,3,10,10,10,12,1,1 };
+            //int foobarious = list2.Count;
 
-            CustomList<int> list3 = new CustomList<int>();
-            list3 = list1 - list2;
+            //CustomList<int> list3 = new CustomList<int>();
+            //list3 = list1 - list2;
 
-            Console.WriteLine("__________________");
-            foreach (var item in list3)
-            {
-                Console.WriteLine(item);
-            }
+            //Console.WriteLine("__________________");
+            //foreach (var item in list3)
+            //{
+            //    Console.WriteLine(item);
+            //}
+
             Console.ReadKey();
         }
     }
