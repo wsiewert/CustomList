@@ -51,7 +51,6 @@ namespace CustomListProject
             }
             if (count >= 1)
             {
-                //finds euqated values, returns skip index
                 for (int i = 0; i < count; i++)
                 {
                     object currentArrayItem = customArray[i];
@@ -65,23 +64,19 @@ namespace CustomListProject
                         return false;
                     }
                 }
-                //rebuilds temporary array from current array minus skip index
                 temporaryArray = new T[count - 1];
                 for (int i = 0; i < (count); i++)
                 {
                     if (i == skipIndex)
                     {
-                        // continue when skipped
                         continue;
                     }
                     else if (i > skipIndex)
                     {
-                        // add into temparray[i-1]
                         temporaryArray[i - 1] = customArray[i];
                     }
                     else
                     {
-                        // add into temparry[i]
                         temporaryArray[i] = customArray[i];
                     }
                 }
@@ -139,17 +134,17 @@ namespace CustomListProject
 
         public override string ToString()
         {
-            string returnString = "";
+            string customListString = "";
 
             for (int i = 0; i < count; i++)
             { 
-                returnString += "'" + customArray[i].ToString() + "'";
+                customListString += "'" + customArray[i].ToString() + "'";
                 if (i < (count - 1))
                 {
-                    returnString += ", ";
+                    customListString += ", ";
                 }
             }
-            return returnString;
+            return customListString;
         }
 
         public static CustomList<T> operator +(CustomList<T> list1,CustomList<T> list2)
