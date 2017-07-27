@@ -25,7 +25,7 @@ namespace CustomListTest
         }
 
         [TestMethod]
-        public void Add_ListItems_ReturnZippedListIndexZero()
+        public void Zip_ListItems_ReturnZippedListIndexZero()
         {
             //Arrange
             CustomList<int> customListOne = new CustomList<int>() { 0,2,4,6 };
@@ -39,7 +39,7 @@ namespace CustomListTest
         }
 
         [TestMethod]
-        public void Add_ListItems_ReturnZippedListIndexOne()
+        public void Zip_ListItems_ReturnZippedListIndexOne()
         {
             //Arrange
             CustomList<int> customListOne = new CustomList<int>() { 0, 2, 4, 6 };
@@ -53,7 +53,7 @@ namespace CustomListTest
         }
 
         [TestMethod]
-        public void Add_ListItems_ReturnZippedListIndexTwo()
+        public void Zip_ListItems_ReturnZippedListIndexTwo()
         {
             //Arrange
             CustomList<int> customListOne = new CustomList<int>() { 0, 2, 4, 6 };
@@ -67,7 +67,7 @@ namespace CustomListTest
         }
 
         [TestMethod]
-        public void Add_ListItems_ReturnZippedListIndexThree()
+        public void Zip_ListItems_ReturnZippedListIndexThree()
         {
             //Arrange
             CustomList<int> customListOne = new CustomList<int>() { 0, 2, 4, 6 };
@@ -81,7 +81,7 @@ namespace CustomListTest
         }
 
         [TestMethod]
-        public void Add_ListItems_ReturnZippedListIndexFour()
+        public void Zip_ListItems_ReturnZippedListIndexFour()
         {
             //Arrange
             CustomList<int> customListOne = new CustomList<int>() { 0, 2, 4, 6 };
@@ -95,7 +95,7 @@ namespace CustomListTest
         }
 
         [TestMethod]
-        public void Add_ListItems_ReturnZippedListIndexFive()
+        public void Zip_ListItems_ReturnZippedListIndexFive()
         {
             //Arrange
             CustomList<int> customListOne = new CustomList<int>() { 0, 2, 4, 6 };
@@ -109,7 +109,7 @@ namespace CustomListTest
         }
 
         [TestMethod]
-        public void Add_ListItems_ReturnZippedListIndexSix()
+        public void Zip_ListItems_ReturnZippedListIndexSix()
         {
             //Arrange
             CustomList<int> customListOne = new CustomList<int>() { 0, 2, 4, 6 };
@@ -123,7 +123,7 @@ namespace CustomListTest
         }
 
         [TestMethod]
-        public void Add_ListItems_ReturnZippedListIndexSeven()
+        public void Zip_ListItems_ReturnZippedListIndexSeven()
         {
             //Arrange
             CustomList<int> customListOne = new CustomList<int>() { 0, 2, 4, 6 };
@@ -134,6 +134,22 @@ namespace CustomListTest
             int index = customListOne[indexTest];
             //Assert
             Assert.AreEqual(index, indexTest);
+        }
+
+        [TestMethod]
+        public void Zip_LargeToSmallLists_ReturnCount()
+        {
+            //Arrange
+            string x = "x";
+            string o = "o";
+            CustomList<string> list1 = new CustomList<string>() { x, x, x, x, x };
+            CustomList<string> list2 = new CustomList<string>() { o, o, o };
+            int expectedCount = 8;
+            //Act
+            list1.Zip(list2);
+            int listCount = list1.Count;
+            //Assert
+            Assert.AreEqual(expectedCount, listCount);
         }
     }
 }

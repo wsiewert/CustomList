@@ -49,7 +49,6 @@ namespace CustomListProject
             {
                 return false;
             }
-
             if (count >= 1)
             {
                 //finds euqated values, returns skip index
@@ -95,7 +94,60 @@ namespace CustomListProject
 
         public void Zip(CustomList<T> newList)
         {
+            int newArrayCount = count + newList.Count;
+            T[] temporaryArray = new T[newArrayCount];
+            int customListCounter = count;
+            int customListIndex = 0;
+            int newlistCounter = newList.Count;
+            int newListIndex = 0;
+            bool arraySwitch = false;
+            for (int i = 0; i < newArrayCount; i++)
+            {
+                if (arraySwitch == false)
+                {
+                    temporaryArray[i] = customArray[customListIndex];
+                    customListIndex++;
+                    customListCounter--;
+                    if (newlistCounter != 0)
+                    {
+                        arraySwitch = true;
+                    }
+                    else
+                    {
+                        arraySwitch = false;
+                    }
+                }
+                else if (arraySwitch == true )
+                {
+                    temporaryArray[i] = newList[newListIndex];
+                    newListIndex++;
+                    newlistCounter--;
+                    if (customListCounter != 0)
+                    {
+                        arraySwitch = false;
+                    }
+                    else
+                    {
+                        arraySwitch = true;
+                    }
+                }
+            }
+            customArray = new T[newArrayCount];
+            customArray = temporaryArray;
+            count = newArrayCount;
+        }
 
+        private bool GetEvenNumber(int value)
+        {
+            if (value % 2 == 0)
+            {
+                return true;
+            }
+            else if (value % 2 != 0)
+            {
+                return false;
+            }
+            return false;
         }
 
         public override string ToString()
