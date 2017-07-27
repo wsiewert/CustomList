@@ -103,7 +103,7 @@ namespace CustomListProject
             bool arraySwitch = false;
             for (int i = 0; i < newArrayCount; i++)
             {
-                if (arraySwitch == false)
+                if (arraySwitch == false && count > 0)
                 {
                     temporaryArray[i] = customArray[customListIndex];
                     customListIndex++;

@@ -11,17 +11,13 @@ namespace CustomListTest
         public void Zip_Lists_ReturnNewZippedList()
         {
             //Arrange
-            CustomList<int> customListOne = new CustomList<int>() { };
-            CustomList<int> customListTwo = new CustomList<int>() { };
-            int one = 1;
-            int two = 2;
+            CustomList<int> customListOne = new CustomList<int>() { 1 };
+            CustomList<int> customListTwo = new CustomList<int>() { 2 };
             //Act
-            customListOne.Add(one);
-            customListTwo.Add(two);
             customListOne.Zip(customListTwo);
             int indexTwo = customListOne[1];
             //Assert
-            Assert.AreEqual(two,indexTwo);
+            Assert.AreEqual(2,indexTwo);
         }
 
         [TestMethod]
@@ -145,6 +141,97 @@ namespace CustomListTest
             CustomList<string> list1 = new CustomList<string>() { x, x, x, x, x };
             CustomList<string> list2 = new CustomList<string>() { o, o, o };
             int expectedCount = 8;
+            //Act
+            list1.Zip(list2);
+            int listCount = list1.Count;
+            //Assert
+            Assert.AreEqual(expectedCount, listCount);
+        }
+
+        [TestMethod]
+        public void Zip_SmallToLargeList_ReturnCount()
+        {
+            //Arrange
+            string x = "x";
+            string o = "o";
+            CustomList<string> list1 = new CustomList<string>() { x, x, x };
+            CustomList<string> list2 = new CustomList<string>() { o, o, o, o, o, o, o, o, o, o, o, o };
+            int expectedCount = 15;
+            //Act
+            list1.Zip(list2);
+            int listCount = list1.Count;
+            //Assert
+            Assert.AreEqual(expectedCount, listCount);
+        }
+
+        [TestMethod]
+        public void Zip_SameSizeLists_ReturnCount()
+        {
+            //Arrange
+            string x = "x";
+            string o = "o";
+            CustomList<string> list1 = new CustomList<string>() { x, x, x };
+            CustomList<string> list2 = new CustomList<string>() { o, o, o };
+            int expectedCount = 6;
+            //Act
+            list1.Zip(list2);
+            int listCount = list1.Count;
+            //Assert
+            Assert.AreEqual(expectedCount, listCount);
+        }
+
+        [TestMethod]
+        public void Zip_NothingToList_ReturnCount()
+        {
+            //Arrange
+            string o = "o";
+            CustomList<string> list1 = new CustomList<string>() { };
+            CustomList<string> list2 = new CustomList<string>() { o, o, o };
+            int expectedCount = 3;
+            //Act
+            list1.Zip(list2);
+            int listCount = list1.Count;
+            //Assert
+            Assert.AreEqual(expectedCount, listCount);
+        }
+
+        [TestMethod]
+        public void Zip_ListToNothing_ReturnCount()
+        {
+            //Arrange
+            string x = "x";
+            CustomList<string> list1 = new CustomList<string>() { x, x, x };
+            CustomList<string> list2 = new CustomList<string>() { };
+            int expectedCount = 3;
+            //Act
+            list1.Zip(list2);
+            int listCount = list1.Count;
+            //Assert
+            Assert.AreEqual(expectedCount, listCount);
+        }
+
+        [TestMethod]
+        public void Zip_NothingToNothing_ReturnCountZero()
+        {
+            //Arrange
+            CustomList<string> list1 = new CustomList<string>() { };
+            CustomList<string> list2 = new CustomList<string>() { };
+            int expectedCount = 0;
+            //Act
+            list1.Zip(list2);
+            int listCount = list1.Count;
+            //Assert
+            Assert.AreEqual(expectedCount, listCount);
+        }
+
+        [TestMethod]
+        public void Zip_ListsOfObjects_ReturnCount()
+        {
+            //Arrange
+            Random random = new Random();
+            CustomList<Random> list1 = new CustomList<Random>() { random, random, random };
+            CustomList<Random> list2 = new CustomList<Random>() { random, random, random };
+            int expectedCount = 6;
             //Act
             list1.Zip(list2);
             int listCount = list1.Count;

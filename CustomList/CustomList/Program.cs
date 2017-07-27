@@ -13,7 +13,7 @@ namespace CustomListProject
             string x = "X";
             string o = "O";
             CustomList<string> list1 = new CustomList<string>() { o, o, o, o };
-            CustomList<string> list2 = new CustomList<string>() { x, x, x, x, x, x, x, x, x, x, x, x, x };
+            CustomList<string> list2 = new CustomList<string>() { x, x, x, x };
             list1.Zip(list2);
             string printThis = list1.ToString();
             Console.WriteLine(printThis);
