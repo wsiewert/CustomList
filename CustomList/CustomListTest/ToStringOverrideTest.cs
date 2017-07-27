@@ -47,5 +47,17 @@ namespace CustomListTest
             //Assert
             Assert.AreEqual(customListString, expectedString);
         }
+
+        [TestMethod]
+        public void ToString_Nothing_ReturnEmptyString()
+        {
+            //Arrange
+            CustomList<string> customList = new CustomList<string>() { };
+            //Act
+            string customListString = customList.ToString();
+            //Assert
+            Assert.AreEqual(customListString, "");
+
+        }
     }
 }

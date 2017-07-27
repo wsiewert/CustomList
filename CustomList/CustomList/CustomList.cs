@@ -137,19 +137,6 @@ namespace CustomListProject
             count = newArrayCount;
         }
 
-        private bool GetEvenNumber(int value)
-        {
-            if (value % 2 == 0)
-            {
-                return true;
-            }
-            else if (value % 2 != 0)
-            {
-                return false;
-            }
-            return false;
-        }
-
         public override string ToString()
         {
             string returnString = "";
