@@ -178,18 +178,22 @@ namespace CustomListProject
                 }
             }
             //TOOD: when finished, swap wall with pivot
+            pivot = wall;
             T temporaryPivot = temporaryArray[pivot];
             temporaryArray[pivot] = temporaryArray[wall];
             temporaryArray[wall] = temporaryPivot;
 
             //new pivot point and ranges
-            
+            int firstIndexLeft = firstIndex;
+            int firstIndexRight = pivot - 1;
+            int secondIndexLeft = pivot + 1;
+            int secondIndexRight = lastIndex;
 
-            ////must call left and right array ranges of wall to sort over in recursion calls.
-            ////left half
-            //temporaryArray = QuickSort(temporaryArray,);
-            ////right half
-            //temporaryArray = QuickSort(temporaryArray,);
+            //must call left and right array ranges of wall to sort over in recursion calls.
+            //left half
+            temporaryArray = QuickSort(temporaryArray,firstIndexLeft,firstIndexRight);
+            //right half
+            temporaryArray = QuickSort(temporaryArray,secondIndexLeft,secondIndexRight);
 
             return temporaryArray;
         }
