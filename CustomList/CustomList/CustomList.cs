@@ -53,7 +53,7 @@ namespace CustomListProject
             {
                 for (int i = 0; i < count; i++)
                 {
-                    object currentArrayItem = customArray[i];
+                    T currentArrayItem = customArray[i];
                     if (removableItem.Equals(currentArrayItem))
                     {
                         skipIndex = i;
@@ -112,7 +112,7 @@ namespace CustomListProject
                         arraySwitch = false;
                     }
                 }
-                else if (arraySwitch == true )
+                else if (arraySwitch == true)
                 {
                     temporaryArray[i] = newList[newListIndex];
                     newListIndex++;
@@ -130,6 +130,81 @@ namespace CustomListProject
             customArray = new T[newArrayCount];
             customArray = temporaryArray;
             count = newArrayCount;
+        }
+
+        public void Sort()
+        {
+            T[] temporaryArray = customArray;
+            int firstIndex = 0;
+            int lastIndex = count - 1;
+            if (count > 1)
+            {
+                temporaryArray = QuickSort(temporaryArray, firstIndex, lastIndex);
+            }
+            customArray = temporaryArray;
+        }
+
+        private T[] QuickSort(T[] temporaryArray, int firstIndex, int lastIndex)
+        {
+            int wall = firstIndex;
+            int pivot = lastIndex;
+            int range = (lastIndex - firstIndex);
+            int comparingIndex = firstIndex - 1;
+
+            for (int i = firstIndex; i < range; i++)
+            {
+                if (range <= 1)
+                {
+                    //TODO: return array, exit recursion.
+                    return temporaryArray;
+                }
+
+                if (Compare(temporaryArray[pivot], temporaryArray[i]) >= 0)
+                {
+                    //if i < than pivot
+
+                    //increment comparingIndex
+                    comparingIndex++;
+                    //swap comparingIndex with i
+                    temporaryArray = SwapIndexes(temporaryArray, comparingIndex, i);
+                    //increment wall
+                    wall++;
+                }
+                else if (Compare(temporaryArray[pivot], temporaryArray[i]) < 0)
+                {
+                    //if i > than pivot
+                    //continue
+                    continue;
+                }
+            }
+            //TOOD: when finished, swap wall with pivot
+            T temporaryPivot = temporaryArray[pivot];
+            temporaryArray[pivot] = temporaryArray[wall];
+            temporaryArray[wall] = temporaryPivot;
+
+            //new pivot point and ranges
+            
+
+            ////must call left and right array ranges of wall to sort over in recursion calls.
+            ////left half
+            //temporaryArray = QuickSort(temporaryArray,);
+            ////right half
+            //temporaryArray = QuickSort(temporaryArray,);
+
+            return temporaryArray;
+        }
+
+        public int Compare(T item1, T item2)
+        {
+            return Comparer<T>.Default.Compare(item1, item2);
+        }
+
+        private T[] SwapIndexes(T[] temporaryArray, int index1, int index2)
+        {
+            T firstIndex = temporaryArray[index1];
+            temporaryArray[index1] = temporaryArray[index2];
+            temporaryArray[index2] = firstIndex;
+            return temporaryArray;
         }
 
         public override string ToString()

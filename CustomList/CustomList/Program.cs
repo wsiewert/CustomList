@@ -10,12 +10,23 @@ namespace CustomListProject
     {
         static void Main(string[] args)
         {
-            string x = "X";
-            string o = "O";
-            CustomList<string> list1 = new CustomList<string>() { o, o, o, o };
-            CustomList<string> list2 = new CustomList<string>() { x, x, x, x };
-            list1.Zip(list2);
-            string printThis = list1.ToString();
+            //CustomList<int> customList = new CustomList<int>() { 1, 2 };
+            //int result1 = customList.Compare(customList[0], customList[1]); // -1
+            //int result2 = customList.Compare(customList[0], customList[0]); // 0
+            //int result3 = customList.Compare(customList[1], customList[0]); // 1
+            //Console.WriteLine(result1);
+            //Console.WriteLine(result2);
+            //Console.WriteLine(result3);
+            //Console.ReadKey();
+
+            //Sort test data
+            //[5, 2, 1, 3, 4]
+            //after 1 sort
+            //[2, 1, 3, 4, 5]
+
+            CustomList<int> list = new CustomList<int>() { 5, 2, 1, 3, 4 };
+            list.Sort();
+            string printThis = list.ToString();
             Console.WriteLine(printThis);
             Console.ReadKey();
         }
