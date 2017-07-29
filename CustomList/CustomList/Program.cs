@@ -24,7 +24,7 @@ namespace CustomListProject
             //after 1 sort
             //[2, 1, 3, 4, 5]
 
-            CustomList<int> list = new CustomList<int>() { 5, 2, 1, 3, 4 };
+            CustomList<int> list = new CustomList<int>() {  };
             list.Sort();
             string printThis = list.ToString();
             Console.WriteLine(printThis);

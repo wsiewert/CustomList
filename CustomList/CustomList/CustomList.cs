@@ -151,14 +151,14 @@ namespace CustomListProject
             int range = (lastIndex - firstIndex);
             int comparingIndex = firstIndex - 1;
 
+            if (range <= 0)
+            {
+                //TODO: return array, exit recursion.
+                return temporaryArray;
+            }
+
             for (int i = firstIndex; i < range; i++)
             {
-                if (range <= 1)
-                {
-                    //TODO: return array, exit recursion.
-                    return temporaryArray;
-                }
-
                 if (Compare(temporaryArray[pivot], temporaryArray[i]) >= 0)
                 {
                     //if i < than pivot
@@ -178,10 +178,10 @@ namespace CustomListProject
                 }
             }
             //TOOD: when finished, swap wall with pivot
+            temporaryArray = SwapIndexes(temporaryArray, pivot, wall);
+            int temporaryPivotIndex = pivot;
             pivot = wall;
-            T temporaryPivot = temporaryArray[pivot];
-            temporaryArray[pivot] = temporaryArray[wall];
-            temporaryArray[wall] = temporaryPivot;
+            wall = temporaryPivotIndex;
 
             //new pivot point and ranges
             int firstIndexLeft = firstIndex;
@@ -191,9 +191,9 @@ namespace CustomListProject
 
             //must call left and right array ranges of wall to sort over in recursion calls.
             //left half
-            temporaryArray = QuickSort(temporaryArray,firstIndexLeft,firstIndexRight);
+            temporaryArray = QuickSort(temporaryArray, firstIndexLeft, firstIndexRight);
             //right half
-            temporaryArray = QuickSort(temporaryArray,secondIndexLeft,secondIndexRight);
+            temporaryArray = QuickSort(temporaryArray, secondIndexLeft, secondIndexRight);
 
             return temporaryArray;
         }
