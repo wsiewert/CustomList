@@ -178,14 +178,26 @@ namespace CustomListProject
                 }
             }
             //TOOD: when finished, swap wall with pivot
-            temporaryArray = SwapIndexes(temporaryArray, pivot, wall);
-            int temporaryPivotIndex = pivot;
-            pivot = wall;
-            wall = temporaryPivotIndex;
+            if(Compare(temporaryArray[wall], temporaryArray[pivot]) >= 0)
+            {
+                temporaryArray = SwapIndexes(temporaryArray, pivot, wall);
+                int temporaryPivotIndex = pivot;
+                pivot = wall;
+                wall = temporaryPivotIndex;
+            }
+            
 
             //new pivot point and ranges
             int firstIndexLeft = firstIndex;
-            int firstIndexRight = pivot - 1;
+            int firstIndexRight;
+            if (pivot == 0)
+            {
+                firstIndexRight = 0;
+            }
+            else
+            {
+                firstIndexRight = pivot - 1;
+            }
             int secondIndexLeft = pivot + 1;
             int secondIndexRight = lastIndex;
 
