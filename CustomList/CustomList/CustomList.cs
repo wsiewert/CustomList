@@ -157,6 +157,7 @@ namespace CustomListProject
                 return temporaryArray;
             }
 
+            //TODO: i shoud be another int outside the for loop: currentIndex = first index; curentIndex++;
             for (int i = firstIndex; i < range; i++)
             {
                 if (Compare(temporaryArray[pivot], temporaryArray[i]) >= 0)
