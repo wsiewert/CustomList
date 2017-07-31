@@ -153,32 +153,22 @@ namespace CustomListProject
 
             if (range <= 0)
             {
-                //TODO: return array, exit recursion.
                 return temporaryArray;
             }
-
-            //TODO: i shoud be another int outside the for loop: currentIndex = first index; curentIndex++;
             for (int i = firstIndex; i < range; i++)
             {
                 if (Compare(temporaryArray[pivot], temporaryArray[i]) >= 0)
                 {
-                    //if i < than pivot
-
-                    //increment comparingIndex
                     comparingIndex++;
-                    //swap comparingIndex with i
                     temporaryArray = SwapIndexes(temporaryArray, comparingIndex, i);
-                    //increment wall
                     wall++;
                 }
                 else if (Compare(temporaryArray[pivot], temporaryArray[i]) < 0)
                 {
-                    //if i > than pivot
-                    //continue
                     continue;
                 }
             }
-            //TOOD: when finished, swap wall with pivot
+
             if(Compare(temporaryArray[wall], temporaryArray[pivot]) >= 0)
             {
                 temporaryArray = SwapIndexes(temporaryArray, pivot, wall);
@@ -186,9 +176,7 @@ namespace CustomListProject
                 pivot = wall;
                 wall = temporaryPivotIndex;
             }
-            
 
-            //new pivot point and ranges
             int firstIndexLeft = firstIndex;
             int firstIndexRight;
             if (pivot == 0)
@@ -202,10 +190,7 @@ namespace CustomListProject
             int secondIndexLeft = pivot + 1;
             int secondIndexRight = lastIndex;
 
-            //must call left and right array ranges of wall to sort over in recursion calls.
-            //left half
             temporaryArray = QuickSort(temporaryArray, firstIndexLeft, firstIndexRight);
-            //right half
             temporaryArray = QuickSort(temporaryArray, secondIndexLeft, secondIndexRight);
 
             return temporaryArray;

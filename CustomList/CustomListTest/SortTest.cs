@@ -11,7 +11,7 @@ namespace CustomListTest
         public void Sort_IntList_ReturnIndexZero()
         {
             //Arrange
-            CustomList<int> list1 = new CustomList<int>() { 10,5,9,2 };
+            CustomList<int> list1 = new CustomList<int>() { 10, 5, 9, 2 };
             int testIndex = 0;
             int expectedResult = 2;
             //Act
