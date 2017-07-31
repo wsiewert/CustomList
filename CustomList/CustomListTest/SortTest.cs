@@ -144,5 +144,18 @@ namespace CustomListTest
             //Assert
             Assert.AreEqual(expectedResult, result);
         }
+
+        [TestMethod]
+        public void Sort_RandomIntList_ReturnEquivalentStringList()
+        {
+            //Arrange
+            CustomList<int> list1 = new CustomList<int>() { 10, 9, 5, 7, 6, 1, 4, 2, 3, 11, 12, 17, 16, 15, 13, 14, 20, 18, 8, 19 };
+            string expectedResult = "'1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20'";
+            //Act
+            list1.Sort();
+            string result = list1.ToString();
+            //Assert
+            Assert.AreEqual(expectedResult, result);
+        }
     }
 }

@@ -155,7 +155,7 @@ namespace CustomListProject
             {
                 return temporaryArray;
             }
-            for (int i = firstIndex; i < range; i++)
+            for (int i = firstIndex; i < lastIndex; i++)
             {
                 if (Compare(temporaryArray[pivot], temporaryArray[i]) >= 0)
                 {
